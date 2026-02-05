@@ -44,4 +44,4 @@ Output:
 - On success: the output from the last edit operation in the sequence (same format as the Edit tool: "Edit applied successfully." optionally followed by LSP diagnostics).
 
 Errors:
-- Same errors as the Edit tool, thrown from any individual edit in the sequence. If any edit fails, the error propagates immediately.
+- Same errors as the Edit tool, from whichever edit in the sequence fails. Earlier edits in the sequence persist.

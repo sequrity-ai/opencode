@@ -16,4 +16,4 @@ Output:
 - On success: "User approved switching to build agent. Wait for further instructions."
 
 Errors:
-- User rejected: tool call is rejected when the user selects "No"
+- "The user dismissed this question" — user declined to switch modes

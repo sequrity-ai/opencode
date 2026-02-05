@@ -13,4 +13,4 @@ Output:
 - On success: `User has answered your questions: "<question>"="<answer1>, <answer2>", .... You can now continue with the user's answers in mind.` Unanswered questions show "Unanswered".
 
 Errors:
-- No explicit tool-level errors. Errors propagate from the question subsystem if the user interaction fails.
+- None.

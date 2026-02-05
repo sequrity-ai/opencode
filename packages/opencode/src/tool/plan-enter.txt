@@ -17,4 +17,4 @@ Output:
 - On success: "User confirmed to switch to plan mode. A new message has been created to switch you to plan mode. The plan file will be at <path>. Begin planning."
 
 Errors:
-- User rejected: tool call is rejected when the user selects "No"
+- "The user dismissed this question" — user declined to switch modes

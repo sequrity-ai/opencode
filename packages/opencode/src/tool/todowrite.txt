@@ -169,4 +169,4 @@ Output:
 - On success: JSON array of the updated todo items, pretty-printed with 2-space indentation.
 
 Errors:
-- No explicit tool-level errors.
+- None.

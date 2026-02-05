@@ -27,12 +27,12 @@ Output:
 - All succeeded: "All <N> tools executed successfully.\n\nKeep using the batch tool for optimal performance in your next response!"
 - Some failed: "Executed <N>/<total> tools successfully. <failed> failed."
 
-Errors (entire batch call fails):
-- Empty batch: "Provide at least one tool call"
-- Invalid parameters: "Invalid parameters for tool 'batch':\n<errors>\n\nExpected payload format:\n  [{"tool": "tool_name", "parameters": {...}}, {...}]"
+Errors (entire batch fails):
+- "Provide at least one tool call"
+- "Invalid parameters for tool 'batch':\n<errors>\n\nExpected payload format:\n  [{"tool": "tool_name", "parameters": {...}}, {...}]"
 
-Per-call errors (other calls in the batch still execute):
-- Disallowed tool: "Tool '<name>' is not allowed in batch. Disallowed tools: batch"
-- Tool not in registry: "Tool '<name>' not in registry. External tools (MCP, environment) cannot be batched - call them directly. Available tools: <list>"
-- Exceeded 25 tool limit (first 25 execute, rest fail with this error): "Maximum of 25 tools allowed in batch"
-- Invalid tool parameters: schema validation error from the individual tool (message format varies)
+Per-call errors (other calls still execute):
+- "Tool '<name>' is not allowed in batch. Disallowed tools: batch"
+- "Tool '<name>' not in registry. External tools (MCP, environment) cannot be batched - call them directly. Available tools: <list>"
+- "Maximum of 25 tools allowed in batch" — first 25 execute, rest fail with this error
+- Individual tool parameter validation (format varies by tool)

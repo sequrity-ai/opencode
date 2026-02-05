@@ -118,6 +118,6 @@ Output:
 - Combined stdout and stderr as a single string. If the command was timed out or aborted, a `<bash_metadata>` block is appended with one or more of: "bash tool terminated command after exceeding timeout <N> ms", "User aborted the command".
 
 Errors:
-- Negative timeout: "Invalid timeout value: <value>. Timeout must be a positive number."
-- Command parse failure: "Failed to parse command"
-- Process spawn failure: raw system error propagates (e.g. shell binary not found)
+- "Invalid timeout value: <value>. Timeout must be a positive number."
+- "Failed to parse command"
+- Process spawn failure (e.g. shell binary not found)

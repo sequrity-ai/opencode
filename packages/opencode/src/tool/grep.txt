@@ -14,5 +14,5 @@ Output:
 - When paths were inaccessible: appends "(Some paths were inaccessible and skipped)"
 
 Errors:
-- Missing pattern: "pattern is required"
-- Ripgrep failure: "ripgrep failed: <stderr>"
+- "pattern is required"
+- "ripgrep failed: <stderr>"

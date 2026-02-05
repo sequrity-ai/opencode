@@ -16,6 +16,6 @@ Output:
 - No results: "No code snippets or documentation found. Please try a different query, be more specific about the library or programming concept, or check the spelling of framework names."
 
 Errors:
-- HTTP error: "Code search error (<status>): <error text>"
-- Timeout or abort (30s): "Code search request timed out"
-- Malformed response: parse error propagates (message format varies)
+- "Code search error (<status>): <error text>"
+- "Code search request timed out"
+- Malformed response from search provider

@@ -63,5 +63,5 @@ Output:
 - On success: "task_id: <sessionId> (for resuming to continue this task if needed)\n\n<task_result>\n<text from last assistant message>\n</task_result>"
 
 Errors:
-- Unknown agent: "Unknown agent type: <type> is not a valid agent type"
-- Internal error: "Not an assistant message"
+- "Unknown agent type: <type> is not a valid agent type"
+- "Not an assistant message"
