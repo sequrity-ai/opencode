@@ -15,12 +15,12 @@ To make multiple file edits, provide the following:
 IMPORTANT:
 - All edits are applied in sequence, in the order they are provided
 - Each edit operates on the result of the previous edit
-- All edits must be valid for the operation to succeed - if any edit fails, none will be applied
+- If any edit fails, the error propagates immediately and subsequent edits are skipped, but earlier edits remain applied
 - This tool is ideal when you need to make several changes to different parts of the same file
 
 CRITICAL REQUIREMENTS:
 1. All edits follow the same requirements as the single Edit tool
-2. The edits are atomic - either all succeed or none are applied
+2. Edits are applied sequentially - earlier edits persist even if a later edit fails
 3. Plan your edits carefully to avoid conflicts between sequential operations
 
 WARNING:
@@ -39,3 +39,9 @@ If you want to create a new file, use:
 - A new file path, including dir name if needed
 - First edit: empty oldString and the new file's contents as newString
 - Subsequent edits: normal edit operations on the created content
+
+Output:
+- On success: the output from the last edit operation in the sequence (same format as the Edit tool: "Edit applied successfully." optionally followed by LSP diagnostics).
+
+Errors:
+- Same errors as the Edit tool, thrown from any individual edit in the sequence. If any edit fails, the error propagates immediately.

@@ -11,3 +11,9 @@ Do NOT call this tool:
 - Before you have created or finalized the plan
 - If you still have unanswered questions about the implementation
 - If the user has indicated they want to continue planning
+
+Output:
+- On success: "User approved switching to build agent. Wait for further instructions."
+
+Errors:
+- User rejected: tool call is rejected when the user selects "No"

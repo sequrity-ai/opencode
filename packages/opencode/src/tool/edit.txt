@@ -6,5 +6,19 @@ Usage:
 - ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.
 - Only use emojis if the user explicitly requests it. Avoid adding emojis to files unless asked.
 - The edit will FAIL if `oldString` is not found in the file with an error "oldString not found in content".
-- The edit will FAIL if `oldString` is found multiple times in the file with an error "oldString found multiple times and requires more code context to uniquely identify the intended match". Either provide a larger string with more surrounding context to make it unique or use `replaceAll` to change every instance of `oldString`. 
+- The edit will FAIL if `oldString` is found multiple times in the file with an error "Found multiple matches for oldString. Provide more surrounding lines in oldString to identify the correct match." Either provide a larger string with more surrounding context to make it unique or use `replaceAll` to change every instance of `oldString`. 
 - Use `replaceAll` for replacing and renaming strings across the file. This parameter is useful if you want to rename a variable for instance.
+
+Output:
+- On success: "Edit applied successfully." optionally followed by LSP diagnostics if severity-1 errors are detected, formatted as `\n\nLSP errors detected in this file, please fix:\n<diagnostics file="PATH">\n...errors...\n</diagnostics>` (max 20 diagnostics shown, with "... and N more" suffix if truncated).
+- When `oldString` is empty, the file is created (or overwritten) with `newString` as its full content.
+
+Errors:
+- Missing filePath: "filePath is required"
+- oldString equals newString: "oldString and newString must be different"
+- File does not exist (when oldString is non-empty): "File <path> not found"
+- Path is a directory: "Path is a directory, not a file: <path>"
+- File not read before editing: "You must read file <path> before overwriting it. Use the Read tool first"
+- File modified since last read: "File <path> has been modified since it was last read.\nLast modification: <mtime>\nLast read: <readTime>\n\nPlease read the file again before modifying it."
+- oldString not found: "oldString not found in content"
+- Multiple matches for oldString: "Found multiple matches for oldString. Provide more surrounding lines in oldString to identify the correct match."

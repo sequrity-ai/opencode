@@ -31,3 +31,18 @@ It is important to remember:
 
 - You must include a header with your intended action (Add/Delete/Update)
 - You must prefix new lines with `+` even when creating a new file
+
+Output:
+- On success: "Success. Updated the following files:\n<summary>" where each line is prefixed with `A` (add), `D` (delete), or `M` (update/move) followed by the relative file path. LSP diagnostics appended if severity-1 errors are detected, formatted as `\n\nLSP errors detected in <relative_path>, please fix:\n<diagnostics file="PATH">\n...errors...\n</diagnostics>` (max 20 per file, with "... and N more" suffix if truncated).
+
+Errors:
+- Missing patch text: "patchText is required"
+- Empty patch: "patch rejected: empty patch"
+- No hunks found: "apply_patch verification failed: no hunks found"
+- Invalid format: "apply_patch verification failed: Invalid patch format: missing Begin/End markers"
+- File not found for update: "apply_patch verification failed: Failed to read file to update: <path>"
+- File not found for delete: "apply_patch verification failed: <system error>" (e.g. ENOENT when the target file does not exist)
+- File not readable: "apply_patch verification failed: Failed to read file <path>: <error>"
+- Context not found: "apply_patch verification failed: Failed to find context '<context>' in <path>"
+- Expected lines not found: "apply_patch verification failed: Failed to find expected lines in <path>:\n<lines>"
+- Other patch errors: "apply_patch verification failed: <error>" (generic prefix for unexpected parsing or file-system errors)

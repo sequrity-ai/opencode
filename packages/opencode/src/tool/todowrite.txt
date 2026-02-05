@@ -165,3 +165,8 @@ The assistant did not use the todo list because this is a single command executi
 
 When in doubt, use this tool. Being proactive with task management demonstrates attentiveness and ensures you complete all requirements successfully.
 
+Output:
+- On success: JSON array of the updated todo items, pretty-printed with 2-space indentation.
+
+Errors:
+- No explicit tool-level errors.

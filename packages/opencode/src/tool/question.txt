@@ -8,3 +8,9 @@ Usage notes:
 - When `custom` is enabled (default), a "Type your own answer" option is added automatically; don't include "Other" or catch-all options
 - Answers are returned as arrays of labels; set `multiple: true` to allow selecting more than one
 - If you recommend a specific option, make that the first option in the list and add "(Recommended)" at the end of the label
+
+Output:
+- On success: `User has answered your questions: "<question>"="<answer1>, <answer2>", .... You can now continue with the user's answers in mind.` Unanswered questions show "Unanswered".
+
+Errors:
+- No explicit tool-level errors. Errors propagate from the question subsystem if the user interaction fails.

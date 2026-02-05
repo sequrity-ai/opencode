@@ -11,3 +11,15 @@ Usage notes:
   - Format options: "markdown" (default), "text", or "html"
   - This tool is read-only and does not modify any files
   - Results may be summarized if the content is very large
+
+Output:
+- For "markdown" format: if response is HTML, converted to markdown (# headings, fenced code blocks, script/style/meta/link tags removed); otherwise raw response body
+- For "text" format: if response is HTML, plain text extracted (script, style, noscript, iframe, object, embed content excluded); otherwise raw response body
+- For "html" format: raw response body as a string
+
+Errors:
+- Invalid URL scheme: "URL must start with http:// or https://"
+- HTTP error: "Request failed with status code: <status>"
+- Content-Length exceeds 5MB: "Response too large (exceeds 5MB limit)"
+- Response body exceeds 5MB: "Response too large (exceeds 5MB limit)"
+- Timeout, abort, or network error: error propagates (message format varies, e.g. "The operation was aborted")
