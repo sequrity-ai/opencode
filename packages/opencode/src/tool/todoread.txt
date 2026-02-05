@@ -12,3 +12,9 @@ Usage:
 - Returns a list of todo items with their status, priority, and content
 - Use this information to track progress and plan next steps
 - If no todos exist yet, an empty list will be returned
+
+Output:
+- On success: JSON array of todo items, pretty-printed with 2-space indentation.
+
+Errors:
+- No explicit tool-level errors.

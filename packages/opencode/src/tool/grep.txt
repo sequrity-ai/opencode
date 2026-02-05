@@ -6,3 +6,13 @@
 - Use this tool when you need to find files containing specific patterns
 - If you need to identify/count the number of matches within files, use the Bash tool with `rg` (ripgrep) directly. Do NOT use `grep`.
 - When you are doing an open-ended search that may require multiple rounds of globbing and grepping, use the Task tool instead
+
+Output:
+- No matches: "No files found"
+- Matches: "Found <N> matches" header (N is the number of returned matches, capped at 100) followed by grouped results per file: `<filePath>:\n  Line <N>: <text>`, sorted by modification time (newest first). Lines truncated at 2000 characters.
+- When truncated: appends "(Results are truncated. Consider using a more specific path or pattern.)"
+- When paths were inaccessible: appends "(Some paths were inaccessible and skipped)"
+
+Errors:
+- Missing pattern: "pattern is required"
+- Ripgrep failure: "ripgrep failed: <stderr>"

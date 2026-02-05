@@ -6,3 +6,11 @@ Usage:
 - ALWAYS prefer editing existing files in the codebase. NEVER write new files unless explicitly required.
 - NEVER proactively create documentation files (*.md) or README files. Only create documentation files if explicitly requested by the User.
 - Only use emojis if the user explicitly requests it. Avoid writing emojis to files unless asked.
+
+Output:
+- On success: "Wrote file successfully." optionally followed by LSP diagnostics if severity-1 errors are detected. For the written file: `\n\nLSP errors detected in this file, please fix:\n<diagnostics file="PATH">\n...errors...\n</diagnostics>`. For other project files (up to 5): `\n\nLSP errors detected in other files:\n<diagnostics file="PATH">\n...errors...\n</diagnostics>`. Max 20 diagnostics per file, with "... and N more" suffix if truncated.
+
+Errors:
+- File not read before overwriting: "You must read file <path> before overwriting it. Use the Read tool first"
+- File modified since last read: "File <path> has been modified since it was last read.\nLast modification: <mtime>\nLast read: <readTime>\n\nPlease read the file again before modifying it."
+- Path is a directory: raw system error propagates

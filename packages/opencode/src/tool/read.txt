@@ -10,3 +10,12 @@ Usage:
 - You have the capability to call multiple tools in a single response. It is always better to speculatively read multiple files as a batch that are potentially useful.
 - If you read a file that exists but has empty contents you will receive a system reminder warning in place of file contents.
 - You can read image files using this tool.
+
+Output:
+- For text files: lines wrapped in `<file>...</file>` tags, each prefixed with a zero-padded 5-digit line number and `| ` (e.g., `00001| line content`). Lines longer than 2000 characters are truncated with `...`. Ends with one of: `(End of file - total N lines)`, `(File has more lines. Use 'offset' parameter to read beyond line N)`, or `(Output truncated at 51200 bytes. Use 'offset' parameter to read beyond line N)`.
+- For images and PDFs: output is `"Image read successfully"` or `"PDF read successfully"` with the file content sent as a base64 data-URL attachment.
+
+Errors:
+- File not found (with suggestions): "File not found: <path>\n\nDid you mean one of these?\n<suggestions>"
+- File not found (no suggestions): "File not found: <path>"
+- Binary file detected: "Cannot read binary file: <path>"

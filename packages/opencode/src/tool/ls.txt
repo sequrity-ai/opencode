@@ -1,1 +1,7 @@
 Lists files and directories in a given path. The path parameter must be absolute; omit it to use the current workspace directory. You can optionally provide an array of glob patterns to ignore with the ignore parameter. You should generally prefer the Glob and Grep tools, if you know which directories to search.
+
+Output:
+- A directory tree starting with `<searchPath>/` followed by indented subdirectories (suffixed with `/`) and files. Subdirectories are listed before files. Common directories (node_modules, .git, dist, build, etc.) are excluded by default. Capped at 100 files.
+
+Errors:
+- No explicit tool-level errors. Errors propagate from the underlying file system or ripgrep operations.

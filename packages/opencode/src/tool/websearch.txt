@@ -12,3 +12,12 @@ Usage notes:
 
 Today's date is {{date}}. You MUST use this year when searching for recent information or current events
 - Example: If today is 2025-07-15 and the user asks for "latest AI news", search for "AI news 2025", NOT "AI news 2024"
+
+Output:
+- On success: text content from the search results
+- No results: "No search results found. Please try a different query."
+
+Errors:
+- HTTP error: "Search error (<status>): <response body>"
+- Timeout or abort (25s): "Search request timed out"
+- Malformed response: raw parse error propagates
