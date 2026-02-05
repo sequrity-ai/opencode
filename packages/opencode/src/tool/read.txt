@@ -16,6 +16,5 @@ Output:
 - For images and PDFs: output is `"Image read successfully"` or `"PDF read successfully"` with the file content sent as a base64 data-URL attachment.
 
 Errors:
-- File not found (with suggestions): "File not found: <path>\n\nDid you mean one of these?\n<suggestions>"
-- File not found (no suggestions): "File not found: <path>"
-- Binary file detected: "Cannot read binary file: <path>"
+- "File not found: <path>" — may include "\n\nDid you mean one of these?\n<suggestions>"
+- "Cannot read binary file: <path>"

@@ -18,6 +18,6 @@ Output:
 - No results: "No search results found. Please try a different query."
 
 Errors:
-- HTTP error: "Search error (<status>): <response body>"
-- Timeout or abort (25s): "Search request timed out"
-- Malformed response: raw parse error propagates
+- "Search error (<status>): <response body>"
+- "Search request timed out"
+- Malformed response from search provider

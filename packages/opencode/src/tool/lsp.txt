@@ -23,5 +23,5 @@ Output:
 - Results: JSON array of LSP results, pretty-printed with 2-space indentation
 
 Errors:
-- File not found: "File not found: <path>"
-- No LSP server: "No LSP server available for this file type."
+- "File not found: <path>"
+- "No LSP server available for this file type."

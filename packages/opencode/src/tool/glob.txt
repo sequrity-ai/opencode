@@ -11,4 +11,4 @@ Output:
 - When truncated: appends "(Results are truncated. Consider using a more specific path or pattern.)"
 
 Errors:
-- Ripgrep failure: underlying ripgrep process errors propagate (e.g. invalid glob pattern, inaccessible directory)
+- File system or search process errors (e.g. invalid glob pattern, inaccessible directory)
